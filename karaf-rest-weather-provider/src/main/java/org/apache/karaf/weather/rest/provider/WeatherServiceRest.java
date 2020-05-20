@@ -1,19 +1,18 @@
 package org.apache.karaf.weather.rest.provider;
 
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.karaf.weather.rest.api.Weather;
 import org.apache.karaf.weather.rest.api.WeatherService;
 
-
-@Path("/")
+@RequiredArgsConstructor
 public class WeatherServiceRest implements WeatherService {
-    @Context
-    ProviderWeatherService providerWeatherService = new ProviderWeatherService();
+
+    private final ProviderWeatherServiceImpl providerWeatherServiceImpl;
 
     @Override
     public Weather getWeather(String city) {
-        return providerWeatherService.getWeatherByCity(city);
+        return providerWeatherServiceImpl.getWeatherByCity(city);
     }
 }

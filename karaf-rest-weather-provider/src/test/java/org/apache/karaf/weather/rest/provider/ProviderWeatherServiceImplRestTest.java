@@ -7,28 +7,26 @@ import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
 
-public class ProviderWeatherServiceRestTest {
+public class ProviderWeatherServiceImplRestTest {
 
     @Test
     public void getWeatherMethodDefaultValueCheck() {
-        WeatherServiceRest weatherServiceRest = new WeatherServiceRest();
-        ProviderWeatherService mock = Mockito.mock(ProviderWeatherService.class);
-        weatherServiceRest.providerWeatherService = mock;
+        ProviderWeatherServiceImpl mock = Mockito.mock(ProviderWeatherServiceImpl.class);
         Weather londonWeather = new Weather("london", "clouds",new Temperature(), 15,15);
         Mockito.when(mock.getWeatherByCity("london")).thenReturn(londonWeather);
+        WeatherServiceRest weatherServiceRest = new WeatherServiceRest(mock);
         assertEquals(weatherServiceRest.getWeather("london"), londonWeather);
 
     }
 
     @Test
     public void getWeatherMethodInvalidValueCheck() {
-       ProviderWeatherService mock = Mockito.mock(ProviderWeatherService.class);
+       ProviderWeatherServiceImpl mock = Mockito.mock(ProviderWeatherServiceImpl.class);
         Mockito.when(mock.getWeatherByCity("FictionalCity")).thenThrow(new IllegalStateException("invalid city name"));
-        WeatherServiceRest weatherServiceRest = new WeatherServiceRest();
-        weatherServiceRest.providerWeatherService = mock;
-        Throwable thrown = assertThrows(IllegalStateException.class, () -> {
-            new WeatherServiceRest().getWeather("FictionalCity");
-        });
+        WeatherServiceRest weatherServiceRest = new WeatherServiceRest(mock);
+        Throwable thrown = assertThrows(IllegalStateException.class, () ->
+            new WeatherServiceRest(mock).getWeather("FictionalCity")
+        );
         assertEquals(thrown.getMessage(), "invalid city name");
     }
 }

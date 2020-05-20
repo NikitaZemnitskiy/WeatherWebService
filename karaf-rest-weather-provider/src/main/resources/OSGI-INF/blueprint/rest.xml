@@ -24,6 +24,9 @@
             <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </jaxrs:providers>
     </jaxrs:server>
-    <bean id="weatherBean" class="org.apache.karaf.weather.rest.provider.WeatherServiceRest"/>
+    <bean id="providerWeatherBean" class="org.apache.karaf.weather.rest.provider.ProviderWeatherServiceImpl"/>
+    <bean id="weatherBean" class="org.apache.karaf.weather.rest.provider.WeatherServiceRest">
+        <argument ref="providerWeatherBean"/>
+    </bean>
 
 </blueprint>

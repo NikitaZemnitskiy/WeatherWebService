@@ -6,7 +6,7 @@ import javax.ws.rs.Produces;
 
 
 public interface WeatherService {
-    @Path("city/{city}")
+    @Path("/city/{city}")
     @Produces("application/json")
     @GET
     Weather getWeather(@PathParam("city") String city);
