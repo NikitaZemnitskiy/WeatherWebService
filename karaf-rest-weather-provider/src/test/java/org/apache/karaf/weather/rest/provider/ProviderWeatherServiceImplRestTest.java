@@ -3,30 +3,39 @@ package org.apache.karaf.weather.rest.provider;
 import org.apache.karaf.weather.rest.api.Temperature;
 import org.apache.karaf.weather.rest.api.Weather;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import javax.ws.rs.BadRequestException;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+@RunWith(MockitoJUnitRunner.class)
 public class ProviderWeatherServiceImplRestTest {
+    @Mock
+    ProviderWeatherServiceImpl providerWeatherServiceImplmock;
 
     @Test
     public void getWeatherMethodDefaultValueCheck() {
-        ProviderWeatherServiceImpl mock = Mockito.mock(ProviderWeatherServiceImpl.class);
-        Weather londonWeather = new Weather("london", "clouds",new Temperature(), 15,15);
-        Mockito.when(mock.getWeatherByCity("london")).thenReturn(londonWeather);
-        WeatherServiceRest weatherServiceRest = new WeatherServiceRest(mock);
-        assertEquals(weatherServiceRest.getWeather("london"), londonWeather);
+
+        Weather londonWeather = new Weather("london", "clouds", new Temperature(), 15, 15);
+        Mockito.when(providerWeatherServiceImplmock.getWeatherByCity("london")).thenReturn(londonWeather);
+        WeatherServiceImpl weatherServiceImpl = new WeatherServiceImpl(providerWeatherServiceImplmock);
+        assertEquals(weatherServiceImpl.getWeather("london"), londonWeather);
 
     }
 
     @Test
     public void getWeatherMethodInvalidValueCheck() {
-       ProviderWeatherServiceImpl mock = Mockito.mock(ProviderWeatherServiceImpl.class);
-        Mockito.when(mock.getWeatherByCity("FictionalCity")).thenThrow(new IllegalStateException("invalid city name"));
-        WeatherServiceRest weatherServiceRest = new WeatherServiceRest(mock);
-        Throwable thrown = assertThrows(IllegalStateException.class, () ->
-            new WeatherServiceRest(mock).getWeather("FictionalCity")
+
+        Mockito.when(providerWeatherServiceImplmock.getWeatherByCity("FictionalCity")).thenThrow(new BadRequestException("City FictionalCity is not in our database"));
+        WeatherServiceImpl weatherServiceImpl = new WeatherServiceImpl(providerWeatherServiceImplmock);
+        Throwable thrown = assertThrows(BadRequestException.class, () ->
+                new WeatherServiceImpl(providerWeatherServiceImplmock).getWeather("FictionalCity")
         );
-        assertEquals(thrown.getMessage(), "invalid city name");
+        assertEquals(thrown.getMessage(), "City FictionalCity is not in our database");
     }
 }

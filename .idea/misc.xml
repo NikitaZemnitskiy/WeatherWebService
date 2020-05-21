@@ -6,6 +6,7 @@
     <file type="Osmorc" url="file://$PROJECT_DIR$/karaf-rest-example-scr" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/karaf-rest-example-whiteboard" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/karaf-rest-weather-api" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/karaf-rest-weather-cassandra" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/karaf-rest-weather-provider" />
   </component>
   <component name="JavaScriptSettings">
@@ -15,6 +16,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/karaf-rest-weather-cassandra/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

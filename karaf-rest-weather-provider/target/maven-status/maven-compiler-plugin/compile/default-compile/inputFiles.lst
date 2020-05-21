@@ -1,3 +1,3 @@
 /home/nikita/IdeaProjects/WeatherWebService/karaf-rest-weather-provider/src/main/java/org/apache/karaf/weather/rest/provider/ProvideWeatherService.java
 /home/nikita/IdeaProjects/WeatherWebService/karaf-rest-weather-provider/src/main/java/org/apache/karaf/weather/rest/provider/ProviderWeatherServiceImpl.java
-/home/nikita/IdeaProjects/WeatherWebService/karaf-rest-weather-provider/src/main/java/org/apache/karaf/weather/rest/provider/WeatherServiceRest.java
+/home/nikita/IdeaProjects/WeatherWebService/karaf-rest-weather-provider/src/main/java/org/apache/karaf/weather/rest/provider/WeatherServiceImpl.java
