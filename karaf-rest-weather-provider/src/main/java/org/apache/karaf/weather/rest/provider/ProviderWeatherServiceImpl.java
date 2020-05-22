@@ -20,16 +20,10 @@ public class ProviderWeatherServiceImpl implements ProvideWeatherService {
     private final WebClient webClient;
 
     public Weather getWeatherByCity(String city) {
-        return webClient.query("q",city).query("units",units).query("APPID", weatherKey).get(Weather.class);
-   /*     String url = String.format("https://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&APPID=%s", city, units, weatherKey);
-        Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);
-        WebTarget target = client.target(url);
-        Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON_TYPE);
-        Response response = builder.get();
-        Weather weather = response.readEntity(Weather.class);
-        if(weather.getName() == null){
-            throw new BadRequestException("City "+city+" is not in our database");
-        }
-        return weather;*/
+        return webClient.reset()
+                .query("q",city)
+                .query("units",units)
+                .query("APPID", weatherKey)
+                .get(Weather.class);
     }
 }

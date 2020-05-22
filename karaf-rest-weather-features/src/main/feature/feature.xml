@@ -21,5 +21,4 @@
         <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.10.4</bundle>
         <bundle>mvn:org.apache.karaf.examples/karaf-rest-example-blueprint/4.2.8</bundle>
     </feature>
-
 </features>
