@@ -2,9 +2,9 @@
 
 ## Artifacts
 
-* **karaf-rest-example-api** is a common bundle containing the `Booking` POJO and the `BookingService` interface.   
-* **karaf-rest-example-blueprint** is a blueprint bundle providing the `BookingServiceRest` implementation of the `WeatherService` interface.
-* **karaf-rest-example-features** provides a Karaf features repository used for the deployment.
+* **karaf-rest-weather-api** is a common bundle containing the `Weather` POJO and the `WeatherService` interface.   
+* **karaf-rest-weather-provider** is a blueprint bundle providing the `WeatherServiceRestImpl` implementation of the `WeatherService` interface.
+* **karaf-rest-weather-features** provides a Karaf features repository used for the deployment.
 
 ## Build
 
@@ -19,11 +19,11 @@ mvn clean install
 On a running Karaf instance, register the features repository using:
 
 ```
-karaf@root()> feature:repo-add mvn:org.apache.karaf.examples/karaf-rest-example-features/LATEST/xml
+karaf@root()> feature:repo-add mvn:com.nix.zemnitskiy/karaf-rest-weather-features/1.0.0/xml
 ```
 
 Then, you can install the service blueprint provider feature:
 
 ```
-karaf@root()> feature:install karaf-rest-example-blueprint
+karaf@root()> feature:install karaf-rest-weather-provider
 ```
