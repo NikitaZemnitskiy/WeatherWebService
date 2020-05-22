@@ -7,7 +7,7 @@
 
     <groupId>com.nix.zemnitskiy</groupId>
     <artifactId>karaf-rest-weather</artifactId>
-    <version>4.2.8</version>
+    <version>1.0.0</version>
     <name>Apache Karaf :: Weather :: REST</name>
     <packaging>pom</packaging>
 
@@ -22,7 +22,7 @@
 
     <properties>
         <jackson.version>2.10.4</jackson.version>
-        <project.version>4.2.8</project.version>
+        <project.version>1.0.0</project.version>
         <cxf.version>3.3.5</cxf.version>
         <karaf.version>4.2.8</karaf.version>
         <jax-rs.version>2.1</jax-rs.version>
