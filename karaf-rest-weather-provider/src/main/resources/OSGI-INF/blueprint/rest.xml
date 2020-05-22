@@ -18,7 +18,7 @@
         </cxf:features>
     </cxf:bus>
 
-   <!-- <client:client id="webClient"
+    <client:client id="webClient"
                    address="https://api.openweathermap.org/data/2.5/weather"
                    serviceClass="org.apache.cxf.jaxrs.client.WebClient">
         <client:headers>
@@ -27,7 +27,7 @@
         <client:providers>
             <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </client:providers>
-    </client:client>-->
+    </client:client>
 
     <jaxrs:server id="weatherRest" address="/weather">
         <jaxrs:serviceBeans>
@@ -37,7 +37,9 @@
             <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </jaxrs:providers>
     </jaxrs:server>
-    <bean id="providerWeatherBean" class="org.apache.karaf.weather.rest.provider.ProviderWeatherServiceImpl"/>
+    <bean id="providerWeatherBean" class="org.apache.karaf.weather.rest.provider.ProviderWeatherServiceImpl">
+        <argument ref = "webClient"/>
+    </bean>
 
     <bean id="weatherBean" class="org.apache.karaf.weather.rest.provider.WeatherServiceImpl">
         <argument ref="providerWeatherBean"/>
