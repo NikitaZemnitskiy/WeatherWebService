@@ -20,6 +20,14 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <jackson.version>2.10.4</jackson.version>
+        <project.version>4.2.8</project.version>
+        <cxf.version>3.3.5</cxf.version>
+        <karaf.version>4.2.8</karaf.version>
+        <jax-rs.version>2.1</jax-rs.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
