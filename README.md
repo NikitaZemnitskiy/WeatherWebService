@@ -1,4 +1,4 @@
-# Apache Karaf REST Example
+#Karaf REST Weather Service
 
 ## Artifacts
 
