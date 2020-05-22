@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-rest-example</artifactId>
+        <groupId>com.nix.zemnitskiy</groupId>
+        <artifactId>karaf-rest-weather</artifactId>
         <version>4.2.8</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-rest-example-features</artifactId>
-    <name>Apache Karaf :: Examples :: REST :: Features</name>
+    <artifactId>karaf-rest-weather-features</artifactId>
+    <name>Apache Karaf :: Weather :: REST :: Features</name>
     <packaging>pom</packaging>
 
     <build>

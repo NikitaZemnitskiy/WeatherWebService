@@ -1,4 +1,4 @@
-package org.apache.karaf.weather.rest.api;
+package com.nix.zemnitskiy.karaf.weather.rest.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-rest-example</artifactId>
+        <groupId>com.nix.zemnitskiy</groupId>
+        <artifactId>karaf-rest-weather</artifactId>
         <version>4.2.8</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-rest-example-blueprint</artifactId>
-    <name>Apache Karaf :: Examples :: REST :: Blueprint</name>
+    <artifactId>karaf-rest-weather-provider</artifactId>
+    <name>Apache Karaf :: Weather :: REST :: Provider</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -21,8 +21,8 @@
             <version>${jax-rs.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.karaf.examples</groupId>
-            <artifactId>karaf-rest-example-api</artifactId>
+            <groupId>com.nix.zemnitskiy</groupId>
+            <artifactId>karaf-rest-weather-api</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -69,7 +69,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>org.apache.karaf.weather.rest.provider</Export-Package>
+                        <Export-Package>com.nix.zemnitskiy.karaf.weather.rest.provider</Export-Package>
                         <Import-Package>
                             *
                         </Import-Package>

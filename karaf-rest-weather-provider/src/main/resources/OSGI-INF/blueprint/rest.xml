@@ -37,11 +37,11 @@
             <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </jaxrs:providers>
     </jaxrs:server>
-    <bean id="providerWeatherBean" class="org.apache.karaf.weather.rest.provider.ProviderWeatherServiceImpl">
+    <bean id="providerWeatherBean" class="com.nix.zemnitskiy.karaf.weather.rest.provider.ProviderWeatherServiceImpl">
         <argument ref = "webClient"/>
     </bean>
 
-    <bean id="weatherBean" class="org.apache.karaf.weather.rest.provider.WeatherServiceImpl">
+    <bean id="weatherBean" class="com.nix.zemnitskiy.karaf.weather.rest.provider.WeatherServiceImpl">
         <argument ref="providerWeatherBean"/>
     </bean>
 

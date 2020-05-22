@@ -1,4 +1,4 @@
-package org.apache.karaf.weather.rest.api;
+package com.nix.zemnitskiy.karaf.weather.rest.api;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

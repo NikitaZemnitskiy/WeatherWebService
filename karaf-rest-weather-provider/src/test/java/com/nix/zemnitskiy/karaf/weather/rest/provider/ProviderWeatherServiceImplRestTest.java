@@ -1,7 +1,7 @@
-package org.apache.karaf.weather.rest.provider;
+package com.nix.zemnitskiy.karaf.weather.rest.provider;
 
-import org.apache.karaf.weather.rest.api.Temperature;
-import org.apache.karaf.weather.rest.api.Weather;
+import com.nix.zemnitskiy.karaf.weather.rest.api.Temperature;
+import com.nix.zemnitskiy.karaf.weather.rest.api.Weather;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;

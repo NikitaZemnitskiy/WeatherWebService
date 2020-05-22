@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-rest-example</artifactId>
+        <groupId>com.nix.zemnitskiy</groupId>
+        <artifactId>karaf-rest-weather</artifactId>
         <version>4.2.8</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-rest-example-api</artifactId>
-    <name>Apache Karaf :: Examples :: REST :: API</name>
+    <artifactId>karaf-rest-weather-api</artifactId>
+    <name>Apache Karaf :: Weather :: REST :: API</name>
     <packaging>bundle</packaging>
     <dependencies>
         <dependency>
@@ -35,7 +35,7 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                        <Export-Package>org.apache.karaf.weather.rest.api</Export-Package>
+                        <Export-Package>com.nix.zemnitskiy.karaf.weather.rest.api</Export-Package>
                     </instructions>
                 </configuration>
             </plugin>

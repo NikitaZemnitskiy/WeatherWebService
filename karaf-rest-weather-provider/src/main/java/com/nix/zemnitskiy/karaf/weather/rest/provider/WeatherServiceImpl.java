@@ -1,8 +1,8 @@
-package org.apache.karaf.weather.rest.provider;
+package com.nix.zemnitskiy.karaf.weather.rest.provider;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.karaf.weather.rest.api.Weather;
-import org.apache.karaf.weather.rest.api.WeatherService;
+import com.nix.zemnitskiy.karaf.weather.rest.api.Weather;
+import com.nix.zemnitskiy.karaf.weather.rest.api.WeatherService;
 
 @RequiredArgsConstructor
 public class WeatherServiceImpl implements WeatherService {

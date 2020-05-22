@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>org.apache.karaf.examples</groupId>
-    <artifactId>karaf-rest-example</artifactId>
+    <groupId>com.nix.zemnitskiy</groupId>
+    <artifactId>karaf-rest-weather</artifactId>
     <version>4.2.8</version>
-    <name>Apache Karaf :: Examples :: REST</name>
+    <name>Apache Karaf :: Weather :: REST</name>
     <packaging>pom</packaging>
 
     <dependencies>
