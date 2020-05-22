@@ -5,12 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <parent>
-        <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>apache-karaf-examples</artifactId>
-        <version>4.2.8</version>
-    </parent>
-
+    <groupId>org.apache.karaf.examples</groupId>
     <artifactId>karaf-rest-example</artifactId>
     <version>4.2.8</version>
     <name>Apache Karaf :: Examples :: REST</name>
