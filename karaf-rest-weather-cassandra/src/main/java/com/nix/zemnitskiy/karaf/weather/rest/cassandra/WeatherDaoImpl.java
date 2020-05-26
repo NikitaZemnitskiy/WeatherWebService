@@ -27,7 +27,6 @@ public class WeatherDaoImpl implements WeatherDao {
 
     @Override
     public void save(Weather weather) {
-        System.out.println("Saving " + weather);
         getWeatherPojoDao().save(weather);
     }
 
