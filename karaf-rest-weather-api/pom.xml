@@ -26,6 +26,12 @@
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.savoirtech.hecate</groupId>
+            <artifactId>hecate-annotation</artifactId>
+            <version>${hecate.version}</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
     <build>

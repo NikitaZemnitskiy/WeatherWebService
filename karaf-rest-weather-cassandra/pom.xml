@@ -10,36 +10,16 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-rest-weather-provider</artifactId>
-    <name>Apache Karaf :: Weather :: REST :: Provider</name>
+    <artifactId>karaf-rest-weather-cassandra</artifactId>
+    <name>Apache Karaf :: Weather :: REST :: Cassandra</name>
     <packaging>bundle</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>${jax-rs.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.nix.zemnitskiy</groupId>
             <artifactId>karaf-rest-weather-api</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.nix.zemnitskiy</groupId>
-            <artifactId>karaf-rest-weather-cassandra</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.jaxrs</groupId>
-            <artifactId>jackson-jaxrs-json-provider</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-client</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
 
         <dependency>
@@ -49,18 +29,24 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-core</artifactId>
+            <version>3.1.0</version>
         </dependency>
 
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.5</version>
-            <scope>test</scope>
+            <groupId>com.savoirtech.hecate</groupId>
+            <artifactId>hecate-core</artifactId>
+            <version>${hecate.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.savoirtech.hecate</groupId>
+            <artifactId>hecate-pojo</artifactId>
+            <version>${hecate.version}</version>
+        </dependency>
+
+
+
 
 
     </dependencies>
@@ -74,11 +60,19 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>com.nix.zemnitskiy.karaf.weather.rest.provider</Export-Package>
+                        <Export-Package>com.nix.zemnitskiy.karaf.weather.rest.cassandra</Export-Package>
                         <Import-Package>
                             *
                         </Import-Package>
                     </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>

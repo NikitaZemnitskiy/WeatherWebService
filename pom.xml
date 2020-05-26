@@ -26,6 +26,8 @@
         <cxf.version>3.3.5</cxf.version>
         <karaf.version>4.2.8</karaf.version>
         <jax-rs.version>2.1</jax-rs.version>
+        <hecate.version>4.0.0</hecate.version>
+        <datastax.version>3.2.0</datastax.version>
     </properties>
 
     <build>
@@ -52,6 +54,7 @@
         <module>karaf-rest-weather-api</module>
         <module>karaf-rest-weather-provider</module>
         <module>karaf-rest-weather-features</module>
+        <module>karaf-rest-weather-cassandra</module>
     </modules>
 
 </project>

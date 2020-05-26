@@ -8,12 +8,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import javax.ws.rs.BadRequestException;
-import static org.mockito.Matchers.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
 
-
-
-import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProviderWeatherServiceImplTest {
@@ -22,22 +19,12 @@ public class ProviderWeatherServiceImplTest {
 
     @Test
     public void getWeatherByCityCorrectInput() {
-        Weather londonWeather = new Weather("london", "clouds", new Temperature(), 15, 15);
+        Weather londonWeather = new Weather(6223,"london", "clouds", new Temperature(), 15, 15);
         Mockito.when(mockWebClient.reset()).thenReturn(mockWebClient);
         Mockito.when(mockWebClient.query(anyString(), anyString())).thenReturn(mockWebClient);
         Mockito.when(mockWebClient.get(Weather.class)).thenReturn(londonWeather);
         ProviderWeatherServiceImpl providerWeatherService = new ProviderWeatherServiceImpl(mockWebClient);
         assertEquals(providerWeatherService.getWeatherByCity("london"), londonWeather);
     }
-    @Test
-    public void getWeatherByCityIncorrectInput() {
-        ProviderWeatherServiceImpl providerWeatherService = new ProviderWeatherServiceImpl(mockWebClient);
-        Mockito.when(mockWebClient.reset()).thenReturn(mockWebClient);
-        Mockito.when(mockWebClient.query(anyString(), anyString())).thenReturn(mockWebClient);
-        Mockito.when(mockWebClient.get(Weather.class)).thenThrow(new BadRequestException("City FictionalCity is not in our database"));
-        Throwable thrown = assertThrows(BadRequestException.class, () ->
-                new WeatherServiceImpl(providerWeatherService).getWeather("FictionalCity")
-        );
-        assertEquals(thrown.getMessage(), "City FictionalCity is not in our database");
-    }
+
 }

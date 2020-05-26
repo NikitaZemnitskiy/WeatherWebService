@@ -37,8 +37,12 @@
             <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </jaxrs:providers>
     </jaxrs:server>
+
+    <reference id="weatherDaoImplBean" interface="com.nix.zemnitskiy.karaf.weather.rest.cassandra.WeatherDao"/>
+
     <bean id="providerWeatherBean" class="com.nix.zemnitskiy.karaf.weather.rest.provider.ProviderWeatherServiceImpl">
-        <argument ref = "webClient"/>
+         <argument ref = "webClient"/>
+         <argument ref="weatherDaoImplBean"/>
     </bean>
 
     <bean id="weatherBean" class="com.nix.zemnitskiy.karaf.weather.rest.provider.WeatherServiceImpl">
