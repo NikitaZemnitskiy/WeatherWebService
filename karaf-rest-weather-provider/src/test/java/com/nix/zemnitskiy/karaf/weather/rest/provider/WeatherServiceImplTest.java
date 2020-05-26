@@ -2,6 +2,7 @@ package com.nix.zemnitskiy.karaf.weather.rest.provider;
 
 import com.nix.zemnitskiy.karaf.weather.rest.api.Temperature;
 import com.nix.zemnitskiy.karaf.weather.rest.api.Weather;
+import com.nix.zemnitskiy.karaf.weather.rest.cassandra.WeatherDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
