@@ -25,7 +25,7 @@
 
     <feature name="karaf-rest-weather-cassandra" version="${project.version}">
         <bundle dependency="true">mvn:io.dropwizard.metrics/metrics-core/3.1.0</bundle>
-        <bundle dependency="true">mvn:com.datastax.cassandra/cassandra-driver-core/3.1.0</bundle>
+        <bundle dependency="true">mvn:com.datastax.cassandra/cassandra-driver-core/4.0.0</bundle>
         <bundle dependency="true">mvn:com.google.guava/guava/18.0</bundle>
         <bundle dependency="true">mvn:io.netty/netty-handler/${netty.version}</bundle>
         <bundle dependency="true">mvn:io.netty/netty-buffer/${netty.version}</bundle>

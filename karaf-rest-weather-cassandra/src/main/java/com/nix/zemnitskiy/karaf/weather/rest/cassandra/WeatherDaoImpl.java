@@ -6,11 +6,14 @@ import com.savoirtech.hecate.pojo.dao.PojoDao;
 import com.savoirtech.hecate.pojo.dao.PojoDaoFactory;
 import com.savoirtech.hecate.pojo.dao.def.DefaultPojoDaoFactoryBuilder;
 import com.savoirtech.hecate.pojo.dao.listener.CreateSchemaListener;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
+@Data
+@NoArgsConstructor
 public class WeatherDaoImpl implements WeatherDao {
     private PojoDao<Weather> weatherPojoDao;
-    private final CassandraConnector cassandraConnector;
+    private CassandraConnector cassandraConnector;
 
     public WeatherDaoImpl(CassandraConnector cassandraConnector) {
         this.cassandraConnector = cassandraConnector;
@@ -25,6 +28,11 @@ public class WeatherDaoImpl implements WeatherDao {
     @Override
     public void save(Weather weather) {
         weatherPojoDao.save(weather);
+    }
+
+    @Override
+    public Weather find(int id) {
+        return weatherPojoDao.findByKey(id);
     }
 
 }

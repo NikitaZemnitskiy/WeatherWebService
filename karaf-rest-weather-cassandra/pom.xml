@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.datastax.cassandra</groupId>
             <artifactId>cassandra-driver-core</artifactId>
-            <version>3.1.0</version>
+            <version>4.0.0</version>
         </dependency>
 
         <dependency>
@@ -44,32 +44,25 @@
             <artifactId>hecate-pojo</artifactId>
             <version>${hecate.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
+            <groupId>com.savoirtech.hecate</groupId>
+            <artifactId>hecate-test</artifactId>
+            <version>${hecate.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.savoirtech.hecate</groupId>
-            <artifactId>hecate-testing</artifactId>
-            <version>1.1.0</version>
+            <artifactId>hecate-annotation</artifactId>
+            <version>${hecate.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.cassandraunit</groupId>
-            <artifactId>cassandra-unit</artifactId>
-            <version>3.0.0.1</version>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-core</artifactId>
+            <version>3.5.0</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.5</version>
-            <scope>test</scope>
-        </dependency>
-
 
     </dependencies>
 
