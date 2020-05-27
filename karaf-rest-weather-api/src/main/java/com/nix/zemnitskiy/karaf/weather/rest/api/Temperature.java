@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.savoirtech.hecate.annotation.PartitionKey;
 
+import java.util.UUID;
+
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
@@ -13,6 +15,7 @@ import com.savoirtech.hecate.annotation.PartitionKey;
 public class Temperature {
 
     @PartitionKey
+    private String tempId = UUID.randomUUID().toString();
     private double temp;
     private double feels_like;
     private double temp_min;

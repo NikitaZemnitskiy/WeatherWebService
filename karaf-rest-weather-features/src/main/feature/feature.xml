@@ -2,8 +2,7 @@
 <features name="karaf-rest-weather-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
     <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
-   <!-- <repository>mvn:org.apache.aries.jax.rs/org.apache.aries.jax.rs.features/${jax-rs.version}/xml</repository>-->
-    
+
     <feature name="karaf-rest-weather-api" version="${project.version}">
         <bundle>mvn:com.nix.zemnitskiy/karaf-rest-weather-api/${project.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
@@ -18,7 +17,6 @@
         <feature>aries-blueprint</feature>
         <feature version="${cxf.version}">cxf-jaxrs</feature>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
-
         <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${jackson.version}</bundle>
@@ -26,19 +24,14 @@
     </feature>
 
     <feature name="karaf-rest-weather-cassandra" version="${project.version}">
-
-        <feature version="${project.version}">karaf-rest-weather-api</feature>
-        <feature>aries-blueprint</feature>
-        <feature version="${cxf.version}">cxf-jaxrs</feature>
         <bundle dependency="true">mvn:io.dropwizard.metrics/metrics-core/3.1.0</bundle>
         <bundle dependency="true">mvn:com.datastax.cassandra/cassandra-driver-core/3.1.0</bundle>
         <bundle dependency="true">mvn:com.google.guava/guava/18.0</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-handler/4.0.27.Final</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-buffer/4.0.27.Final</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-common/4.0.27.Final</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-transport/4.0.27.Final</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-codec/4.0.27.Final</bundle>
-
+        <bundle dependency="true">mvn:io.netty/netty-handler/${netty.version}</bundle>
+        <bundle dependency="true">mvn:io.netty/netty-buffer/${netty.version}</bundle>
+        <bundle dependency="true">mvn:io.netty/netty-common/${netty.version}</bundle>
+        <bundle dependency="true">mvn:io.netty/netty-transport/${netty.version}</bundle>
+        <bundle dependency="true">mvn:io.netty/netty-codec/${netty.version}</bundle>
         <bundle>mvn:com.savoirtech.hecate/hecate-pojo/${hecate.version}</bundle>
         <bundle>mvn:com.savoirtech.hecate/hecate-core/${hecate.version}</bundle>
         <bundle>mvn:org.apache.commons/commons-lang3/3.10</bundle>
