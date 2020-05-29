@@ -12,6 +12,7 @@
     <feature name="karaf-rest-weather-provider" version="${project.version}">
         <feature version="${project.version}">karaf-rest-weather-api</feature>
         <feature>karaf-rest-weather-cassandra</feature>
+        <feature>karaf-rest-weather-camel</feature>
         <feature>http</feature>
         <requirement>osgi.service;effective:=active;filter:=(objectClass=org.osgi.service.http.HttpService)</requirement>
         <feature>aries-blueprint</feature>
@@ -24,18 +25,27 @@
     </feature>
 
     <feature name="karaf-rest-weather-cassandra" version="${project.version}">
-        <bundle dependency="true">mvn:io.dropwizard.metrics/metrics-core/3.1.0</bundle>
-        <bundle dependency="true">mvn:com.datastax.cassandra/cassandra-driver-core/4.0.0</bundle>
-        <bundle dependency="true">mvn:com.google.guava/guava/18.0</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-handler/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-buffer/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-common/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-transport/${netty.version}</bundle>
-        <bundle dependency="true">mvn:io.netty/netty-codec/${netty.version}</bundle>
+        <bundle>mvn:io.dropwizard.metrics/metrics-core/${metrics-core.version}</bundle>
+        <bundle>mvn:com.datastax.cassandra/cassandra-driver-core/${cassandra-driver.version}</bundle>
+        <bundle>mvn:com.google.guava/guava/${guava.version}</bundle>
+        <bundle>mvn:io.netty/netty-handler/${netty.version}</bundle>
+        <bundle>mvn:io.netty/netty-buffer/${netty.version}</bundle>
+        <bundle>mvn:io.netty/netty-common/${netty.version}</bundle>
+        <bundle>mvn:io.netty/netty-transport/${netty.version}</bundle>
+        <bundle>mvn:io.netty/netty-codec/${netty.version}</bundle>
         <bundle>mvn:com.savoirtech.hecate/hecate-pojo/${hecate.version}</bundle>
         <bundle>mvn:com.savoirtech.hecate/hecate-core/${hecate.version}</bundle>
-        <bundle>mvn:org.apache.commons/commons-lang3/3.10</bundle>
+        <bundle>mvn:org.apache.commons/commons-lang3/${commons-lang3.version}</bundle>
         <bundle>mvn:com.nix.zemnitskiy/karaf-rest-weather-cassandra/${project.version}</bundle>
+    </feature>
+
+    <feature name="karaf-rest-weather-camel" version="${project.version}">
+        <bundle>mvn:org.apache.camel/camel-core/${camel.version}</bundle>
+        <bundle>mvn:org.apache.camel/camel-mail/${camel.version}</bundle>
+        <bundle>mvn:org.apache.camel.karaf/camel-core-osgi/3.3.0</bundle>
+     <!--   <bundle>mvn:com.sun.mail/imap/1.6.0</bundle>
+        <bundle>mvn:com.sun.mail/javax.mail/1.4.4</bundle>-->
+        <bundle>mvn:com.nix.zemnitskiy/karaf-rest-weather-camel/${project.version}</bundle>
     </feature>
 
 </features>

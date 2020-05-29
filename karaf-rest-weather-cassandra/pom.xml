@@ -29,12 +29,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.datastax.cassandra</groupId>
-            <artifactId>cassandra-driver-core</artifactId>
-            <version>4.0.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.savoirtech.hecate</groupId>
             <artifactId>hecate-core</artifactId>
             <version>${hecate.version}</version>
@@ -61,7 +55,7 @@
         <dependency>
             <groupId>com.datastax.cassandra</groupId>
             <artifactId>cassandra-driver-core</artifactId>
-            <version>3.5.0</version>
+            <version>${cassandra-driver.version}</version>
         </dependency>
 
     </dependencies>

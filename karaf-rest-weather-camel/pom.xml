@@ -10,47 +10,34 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-rest-weather-provider</artifactId>
-    <name>Apache Karaf :: Weather :: REST :: Provider</name>
+    <artifactId>karaf-rest-weather-camel</artifactId>
+    <name>Apache Karaf :: Weather :: REST :: Camel</name>
     <packaging>bundle</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>${jax-rs.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.nix.zemnitskiy</groupId>
             <artifactId>karaf-rest-weather-api</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.nix.zemnitskiy</groupId>
-            <artifactId>karaf-rest-weather-cassandra</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.nix.zemnitskiy</groupId>
-            <artifactId>karaf-rest-weather-camel</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.jaxrs</groupId>
-            <artifactId>jackson-jaxrs-json-provider</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-client</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.karaf.shell</groupId>
             <artifactId>org.apache.karaf.shell.core</artifactId>
             <version>${karaf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-mail</artifactId>
+            <version>${camel.version}</version>
         </dependency>
 
     </dependencies>
@@ -64,11 +51,19 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>com.nix.zemnitskiy.karaf.weather.rest.provider</Export-Package>
+                        <Export-Package>com.nix.zemnitskiy.karaf.weather.rest.camel</Export-Package>
                         <Import-Package>
                             *
                         </Import-Package>
                     </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
