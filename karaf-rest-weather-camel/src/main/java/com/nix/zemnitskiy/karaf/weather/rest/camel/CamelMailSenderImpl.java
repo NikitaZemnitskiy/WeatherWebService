@@ -13,7 +13,6 @@ public class CamelMailSenderImpl implements CamelMailSender {
     @Override
     public void sendEmail(Weather weather) {
         ProducerTemplate producerTemplate = context.createProducerTemplate();
-        context.start();
         producerTemplate.sendBody("direct:sendWeather", weather);
     }
 
