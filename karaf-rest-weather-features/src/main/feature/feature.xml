@@ -43,9 +43,6 @@
         <feature>camel</feature>
         <feature>camel-mail</feature>
         <feature>camel-blueprint</feature>
-        <bundle>mvn:org.apache.camel/camel-core/${camel.version}</bundle>
-        <bundle>mvn:org.apache.camel/camel-mail/${camel.version}</bundle>
-        <bundle>mvn:org.apache.camel.karaf/camel-core-osgi/3.3.0</bundle>
         <bundle>mvn:com.nix.zemnitskiy/karaf-rest-weather-camel/${project.version}</bundle>
     </feature>
 

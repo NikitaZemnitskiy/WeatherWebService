@@ -5,6 +5,8 @@
 * **karaf-rest-weather-api** is a common bundle containing the `Weather` POJO and the `WeatherService` interface.   
 * **karaf-rest-weather-provider** is a blueprint bundle providing the `WeatherServiceRestImpl` implementation of the `WeatherService` interface.
 * **karaf-rest-weather-features** provides a Karaf features repository used for the deployment.
+* **karaf-rest-weather-cassandra** provides a Cassandra database used to storage requests.
+* **karaf-rest-weather-camel** provides a Camel mail service used to send e-mail to your mail.
 
 ## Build
 

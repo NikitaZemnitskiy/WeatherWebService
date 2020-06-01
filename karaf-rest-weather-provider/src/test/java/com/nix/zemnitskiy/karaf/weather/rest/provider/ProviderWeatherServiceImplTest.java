@@ -1,5 +1,6 @@
 package com.nix.zemnitskiy.karaf.weather.rest.provider;
 
+import com.nix.zemnitskiy.karaf.weather.rest.camel.CamelMailSender;
 import com.nix.zemnitskiy.karaf.weather.rest.cassandra.WeatherDao;
 import org.apache.cxf.jaxrs.client.WebClient;
 import com.nix.zemnitskiy.karaf.weather.rest.api.Temperature;
@@ -21,13 +22,16 @@ public class ProviderWeatherServiceImplTest {
     @Mock
     WeatherDao mockWeaherDao;
 
+    @Mock
+    CamelMailSender mockCamelMailSender;
+
     @Test
     public void getWeatherByCityCorrectInput() {
         Weather londonWeather = new Weather(6223,"london", "clouds", new Temperature(), 15, 15);
         Mockito.when(mockWebClient.reset()).thenReturn(mockWebClient);
         Mockito.when(mockWebClient.query(anyString(), anyString())).thenReturn(mockWebClient);
         Mockito.when(mockWebClient.get(Weather.class)).thenReturn(londonWeather);
-        ProviderWeatherServiceImpl providerWeatherService = new ProviderWeatherServiceImpl(mockWebClient, mockWeaherDao);
+        ProviderWeatherServiceImpl providerWeatherService = new ProviderWeatherServiceImpl(mockWebClient, mockWeaherDao, mockCamelMailSender);
         assertEquals(providerWeatherService.getWeatherByCity("london"), londonWeather);
     }
 
