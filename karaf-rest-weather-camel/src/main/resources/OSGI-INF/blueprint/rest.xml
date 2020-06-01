@@ -4,29 +4,25 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
            xsi:schemaLocation="
+
              http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
              ">
 
-  <!--  <cm:property-placeholder persistent-id="com.nix.zemnitskiy.karaf.weather.rest.cassandra">
-        <cm:default-properties>
-            <cm:property name="cassandra.port" value="9042"/>
-            <cm:property name="cassandra.address" value="127.0.0.1"/>
-            <cm:property name="cassandra.keyspace" value="weather_keyspace"/>
-        </cm:default-properties>
-    </cm:property-placeholder>
-
-
-    <bean id="weatherDaoImplBean" class="com.nix.zemnitskiy.karaf.weather.rest.cassandra.WeatherDaoImpl" >
-        <argument ref="cassandraConnector"/>
+    <bean id="camelMailSenderImplBean" class="com.nix.zemnitskiy.karaf.weather.rest.camel.CamelMailSenderImpl">
+        <argument ref="camelRouteBuilder"/>
+        <argument ref="camelContext"/>
     </bean>
 
-    <service ref="weatherDaoImplBean"
-             interface="com.nix.zemnitskiy.karaf.weather.rest.cassandra.WeatherDao"/>
+    <service ref="camelMailSenderImplBean"
+             interface="com.nix.zemnitskiy.karaf.weather.rest.camel.CamelMailSender"/>
 
-    <bean id="cassandraConnector" class="com.nix.zemnitskiy.karaf.weather.rest.cassandra.CassandraConnector">
-        <argument value="${cassandra.address}"/>
-        <argument value="${cassandra.port}"/>
-        <argument value="${cassandra.keyspace}"/>
-    </bean>-->
+    <bean id="camelRouteBuilder" class="com.nix.zemnitskiy.karaf.weather.rest.camel.SimpleRouteBuilder"/>
+
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="camelRouteBuilder"/>
+    </camelContext>
 
 </blueprint>
+
+
+

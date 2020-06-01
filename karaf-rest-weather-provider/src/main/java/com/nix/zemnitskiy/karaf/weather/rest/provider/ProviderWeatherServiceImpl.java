@@ -13,7 +13,7 @@ public class ProviderWeatherServiceImpl implements ProvideWeatherService {
     private final static String UNITS = "metric";
     private final WebClient webClient;
     private final WeatherDao weatherDao;
-
+    private final CamelMailSender camelMailSender;
 
     public Weather getWeatherByCity(String city) {
         Weather weather = webClient.reset()
@@ -22,7 +22,6 @@ public class ProviderWeatherServiceImpl implements ProvideWeatherService {
                 .query("APPID", WEATHER_KEY)
                 .get(Weather.class);
         weatherDao.save(weather);
-        CamelMailSender camelMailSender = new CamelMailSender();
         camelMailSender.sendEmail(weather);
         return weather;
     }

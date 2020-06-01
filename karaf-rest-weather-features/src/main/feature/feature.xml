@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="karaf-rest-weather-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
-
     <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
 
     <feature name="karaf-rest-weather-api" version="${project.version}">
         <bundle>mvn:com.nix.zemnitskiy/karaf-rest-weather-api/${project.version}</bundle>
@@ -40,11 +40,12 @@
     </feature>
 
     <feature name="karaf-rest-weather-camel" version="${project.version}">
+        <feature>camel</feature>
+        <feature>camel-mail</feature>
+        <feature>camel-blueprint</feature>
         <bundle>mvn:org.apache.camel/camel-core/${camel.version}</bundle>
         <bundle>mvn:org.apache.camel/camel-mail/${camel.version}</bundle>
         <bundle>mvn:org.apache.camel.karaf/camel-core-osgi/3.3.0</bundle>
-     <!--   <bundle>mvn:com.sun.mail/imap/1.6.0</bundle>
-        <bundle>mvn:com.sun.mail/javax.mail/1.4.4</bundle>-->
         <bundle>mvn:com.nix.zemnitskiy/karaf-rest-weather-camel/${project.version}</bundle>
     </feature>
 

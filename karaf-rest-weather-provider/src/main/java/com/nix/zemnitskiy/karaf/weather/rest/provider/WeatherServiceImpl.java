@@ -4,10 +4,6 @@ import lombok.RequiredArgsConstructor;
 import com.nix.zemnitskiy.karaf.weather.rest.api.Weather;
 import com.nix.zemnitskiy.karaf.weather.rest.api.WeatherService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-
 @RequiredArgsConstructor
 public class WeatherServiceImpl implements WeatherService {
 
