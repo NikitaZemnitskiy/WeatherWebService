@@ -1,0 +1,33 @@
+version: '2.1'
+
+services:
+
+  cassandra:
+    container_name: cassandra
+    image: cassandra
+    ports:
+      - 9042:9042
+    healthcheck:
+      test: ["CMD-SHELL", "[ $$(nodetool statusgossip) = running ]"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  fake_mail:
+      container_name: fakemail
+      image: djfarrelly/maildev
+      ports:
+        - 1080:80
+        - 25:25
+
+  karaf:
+    build: .
+    container_name : karaf
+    ports:
+      - 8181:8181
+    links:
+      - cassandra
+      - fake_mail
+    depends_on:
+      cassandra:
+        condition: service_healthy

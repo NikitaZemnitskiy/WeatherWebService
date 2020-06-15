@@ -21,8 +21,15 @@ public class CassandraConnector {
             b.withPort(port);
         }
         cluster = b.build();
-
-        session = cluster.connect(keyspace);
+        try {
+            session = cluster.connect(keyspace);
+        }
+        catch (Exception e){
+            session = cluster.connect();
+            session.execute("CREATE KEYSPACE IF NOT EXISTS "+ keyspace +" WITH replication = " +
+                    "{'class':'SimpleStrategy','replication_factor':'1'};");
+            session.execute("USE "+ keyspace);
+        }
     }
 
     public Session getSession() {

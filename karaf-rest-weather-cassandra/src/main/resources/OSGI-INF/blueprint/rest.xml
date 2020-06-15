@@ -9,7 +9,11 @@
              ">
 
     <cm:property-placeholder persistent-id="com.nix.zemnitskiy.karaf.weather.rest.cassandra">
-
+        <cm:default-properties>
+            <cm:property name="cassandra.port" value="9042"/>
+            <cm:property name="cassandra.address" value="cassandra"/>
+            <cm:property name="cassandra.keyspace" value="weather_keyspace"/>
+        </cm:default-properties>
     </cm:property-placeholder>
 
 

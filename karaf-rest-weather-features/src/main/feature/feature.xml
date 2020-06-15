@@ -7,6 +7,7 @@
         <bundle>mvn:com.nix.zemnitskiy/karaf-rest-weather-api/${project.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
         <bundle>mvn:com.savoirtech.hecate/hecate-annotation/${hecate.version}</bundle>
+        <bundle>mvn:org.apache.cxf/cxf-rt-rs-security-cors/${cxf.version}</bundle>
     </feature>
 
     <feature name="karaf-rest-weather-provider" version="${project.version}">
