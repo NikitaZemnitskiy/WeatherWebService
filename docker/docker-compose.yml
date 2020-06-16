@@ -25,6 +25,8 @@ services:
     container_name : karaf
     ports:
       - 8181:8181
+    volumes:
+      - .m2/repository/com/nix/zemnitskiy:/root/.m2/repository/com/nix/zemnitskiy
     links:
       - cassandra
       - fake_mail
